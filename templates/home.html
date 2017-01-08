@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="col s8 tasks">
+	<table class = 'bordered centered highlight'>
+		<thead>
+	       	<tr>
+	           	<th>#</th>
+	           	<th>Description</th>
+	           	<th>Category</th>
+	           	<th>Priority</th>
+	           	<th>Delete</th>
+	       	</tr>
+	    </thead>
+	    <tbody>
+	       <!-- 	{%- for todo in todos %}
+	           	<tr>
+	               	<td>{{ loop.index }} </td>
+	               	<td>{{ todo.description }}</td>
+	               	<td>{{ todo.category.name }}</td>
+	               	<td>{{ todo.priority.name }}</td>
+	               	<td>{{ todo.creation_date }}</td>
+	            </tr>
+	       	{%- endfor %} -->
+	    </tbody>
+    </table>
+</div>
+<div class="col s4">
+	<div class= 'row categories'>
+		<table class = 'bordered centered highlight'>
+			<thead>
+		       	<tr>
+		           	<th>#</th>
+		           	<th>Category</th>
+		           	<th>Delete</th>
+		       	</tr>
+		    </thead>
+		    <tbody>
+		       <!-- 	{%- for todo in todos %}
+		           	<tr>
+		               	<td>{{ loop.index }} </td>
+		               	<td>{{ todo.description }}</td>
+		               	<td>{{ todo.category.name }}</td>
+		               	<td>{{ todo.priority.name }}</td>
+		               	<td>{{ todo.creation_date }}</td>
+		            </tr>
+		       	{%- endfor %} -->
+		    </tbody>
+		    </table>
+	</div>
+	<div class= 'row priorities'>
+		<table class = 'bordered centered highlight'>
+			<thead>
+		       	<tr>
+		           	<th>#</th>
+		           	<th>Priority</th>
+		           	<th>Delete</th>
+		       	</tr>
+	       	</thead>
+	       	<tbody>
+		       <!-- 	{%- for todo in todos %}
+		           	<tr>
+		               	<td>{{ loop.index }} </td>
+		               	<td>{{ todo.description }}</td>
+		               	<td>{{ todo.category.name }}</td>
+		               	<td>{{ todo.priority.name }}</td>
+		               	<td>{{ todo.creation_date }}</td>
+		            </tr>
+		       	{%- endfor %} -->
+	       	</tbody>
+	    </table>
+	</div>
+</div>
+{% endblock %}
