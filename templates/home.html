@@ -3,6 +3,31 @@
 {% block content %}
 
 <div class="col s8 tasks">
+	<form class = 'row'>
+		<div class="input-field col s5">
+      		<input id="last_name" type="text" class="validate">
+      		<label for="last_name">Description</label>
+    	</div>
+    	<div class="input-field col s3">
+		    <select>
+		      	<option value="" disabled selected>Category</option>
+		      	<!-- {%- for cat in categories %}
+		           	<option value = {{ cat.name }}>{{ cat.name }}</option>
+		       	{%- endfor %} -->
+		    </select>
+		    <!-- <label>Materialize Select</label> -->
+		</div>
+		<div class="input-field col s3">
+		    <select>
+		      	<option value="" disabled selected>Priority</option>
+		      	<!-- {%- for pri in priorities %}
+		           	<option value = {{ pri.name }}>{{ pri.name }}</option>
+		       	{%- endfor %} -->
+		    </select>
+		    <!-- <label>Materialize Select</label> -->
+		</div>
+		<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+	</form>
 	<table class = 'bordered centered highlight'>
 		<thead>
 	       	<tr>
@@ -20,7 +45,7 @@
 	               	<td>{{ todo.description }}</td>
 	               	<td>{{ todo.category.name }}</td>
 	               	<td>{{ todo.priority.name }}</td>
-	               	<td>{{ todo.creation_date }}</td>
+		            <td> <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete_forever</i></a> </td>
 	            </tr>
 	       	{%- endfor %} -->
 	    </tbody>
@@ -28,6 +53,13 @@
 </div>
 <div class="col s4">
 	<div class= 'row categories'>
+		<form class = 'row'>
+			<div class="input-field col s10">
+          		<input id="last_name" type="text" class="validate">
+          		<label for="last_name">Add Category</label>
+        	</div>
+			<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+		</form>
 		<table class = 'bordered centered highlight'>
 			<thead>
 		       	<tr>
@@ -37,19 +69,24 @@
 		       	</tr>
 		    </thead>
 		    <tbody>
-		       <!-- 	{%- for todo in todos %}
+		       	<!-- {%- for cat in categories %}
 		           	<tr>
-		               	<td>{{ loop.index }} </td>
-		               	<td>{{ todo.description }}</td>
-		               	<td>{{ todo.category.name }}</td>
-		               	<td>{{ todo.priority.name }}</td>
-		               	<td>{{ todo.creation_date }}</td>
+		           		<td>{{ loop.index }} </td>
+		               	<td>{{ cat.name }} </td>
+		               	<td> <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete_forever</i></a> </td>
 		            </tr>
 		       	{%- endfor %} -->
 		    </tbody>
 		    </table>
 	</div>
 	<div class= 'row priorities'>
+		<form class = 'row'>
+			<div class="input-field col s10">
+          		<input id="last_name" type="text" class="validate">
+          		<label for="last_name">Add Priority</label>
+        	</div>
+			<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+		</form>
 		<table class = 'bordered centered highlight'>
 			<thead>
 		       	<tr>
@@ -59,13 +96,11 @@
 		       	</tr>
 	       	</thead>
 	       	<tbody>
-		       <!-- 	{%- for todo in todos %}
+		       	<!-- {%- for pri in priorites %}
 		           	<tr>
-		               	<td>{{ loop.index }} </td>
-		               	<td>{{ todo.description }}</td>
-		               	<td>{{ todo.category.name }}</td>
-		               	<td>{{ todo.priority.name }}</td>
-		               	<td>{{ todo.creation_date }}</td>
+		           		<td>{{ loop.index }} </td>
+		               	<td>{{ pri.name }} </td>
+		               	<td> <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete_forever</i></a> </td>
 		            </tr>
 		       	{%- endfor %} -->
 	       	</tbody>
