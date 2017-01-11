@@ -1,9 +1,10 @@
 from flask import redirect, render_template
 from todoapp import app
+from models import Task, Priority, Category, db
 
 @app.route('/')
 def dashboard():
-    return  render_template('home.html')
+    return  render_template('home.html', categories = Category.query.all(), priorities = Priority.query.all() , todos = Task.query.all())
 
 @app.route('/new-task')
 def new_task():
