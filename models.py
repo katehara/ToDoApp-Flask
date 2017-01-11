@@ -26,8 +26,8 @@ class Task(db.Model):
 	category_r = db.relationship('Category', foreign_keys=category)
 
 	def __init__(self, desc,cat, pri):
-		self.description = description
-		self.category = category
-		self.priority = priority
+		self.description = desc
+		self.category = cat
+		self.priority = pri
 
 # db.create_all()

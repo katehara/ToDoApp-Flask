@@ -5,11 +5,11 @@
 <div class="col s8 tasks">
 	<form class = 'row'>
 		<div class="input-field col s5">
-      		<input id="last_name" type="text" class="validate">
-      		<label for="last_name">Description</label>
+      		<input id="newTask" type="text" class="validate">
+      		<label for="newTask">Description</label>
     	</div>
     	<div class="input-field col s3">
-		    <select>
+		    <select id = 'selCat'>
 		      	<option value="" disabled selected>Category</option>
 		      	{%- for cat in categories %}
 		           	<option value = {{ cat.name }}>{{ cat.name }}</option>
@@ -18,7 +18,7 @@
 		    <!-- <label>Materialize Select</label> -->
 		</div>
 		<div class="input-field col s3">
-		    <select>
+		    <select id='selPri'>
 		      	<option value="" disabled selected>Priority</option>
 		      	{%- for pri in priorities %}
 		           	<option value = {{ pri.name }}>{{ pri.name }}</option>
@@ -26,7 +26,7 @@
 		    </select>
 		    <!-- <label>Materialize Select</label> -->
 		</div>
-		<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+		<a class="btn-floating waves-effect waves-light red add"><i class="material-icons">add</i></a>
 	</form>
 	<table class = 'bordered centered highlight'>
 		<thead>
@@ -40,12 +40,12 @@
 	    </thead>
 	    <tbody>
 	       	{%- for todo in todos %}
-	           	<tr>
+	           	<tr class= {{ todo.id }}>
 	               	<td>{{ loop.index }} </td>
 	               	<td>{{ todo.description }}</td>
-	               	<td>{{ todo.category.name }}</td>
-	               	<td>{{ todo.priority.name }}</td>
-		            <td> <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete_forever</i></a> </td>
+	               	<td>{{ todo.category }}</td>
+	               	<td>{{ todo.priority}}</td>
+		            <td> <a class="btn-floating waves-effect waves-light red del"><i class="material-icons">delete_forever</i></a> </td>
 	            </tr>
 	       	{%- endfor %}
 	    </tbody>
@@ -55,10 +55,10 @@
 	<div class= 'row categories'>
 		<form class = 'row'>
 			<div class="input-field col s10">
-          		<input id="last_name" type="text" class="validate">
-          		<label for="last_name">Add Category</label>
+          		<input id="newCat" type="text" class="validate">
+          		<label for="newCat">Add Category</label>
         	</div>
-			<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+			<a class="btn-floating waves-effect waves-light red add"><i class="material-icons">add</i></a>
 		</form>
 		<table class = 'bordered centered highlight'>
 			<thead>
@@ -70,10 +70,10 @@
 		    </thead>
 		    <tbody>
 		       	{%- for cat in categories %}
-		           	<tr>
+		           	<tr class = {{ cat.name }} >
 		           		<td>{{ loop.index }} </td>
 		               	<td>{{ cat.name }} </td>
-		               	<td> <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete_forever</i></a> </td>
+		               	<td> <a class="btn-floating waves-effect waves-light red del"><i class="material-icons">delete_forever</i></a> </td>
 		            </tr>
 		       	{%- endfor %}
 		    </tbody>
@@ -82,10 +82,10 @@
 	<div class= 'row priorities'>
 		<form class = 'row'>
 			<div class="input-field col s10">
-          		<input id="last_name" type="text" class="validate">
-          		<label for="last_name">Add Priority</label>
+          		<input id="addPri" type="text" class="validate">
+          		<label for="addPri">Add Priority</label>
         	</div>
-			<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+			<a class="btn-floating waves-effect waves-light red add"><i class="material-icons">add</i></a>
 		</form>
 		<table class = 'bordered centered highlight'>
 			<thead>
@@ -96,11 +96,11 @@
 		       	</tr>
 	       	</thead>
 	       	<tbody>
-		       	{%- for pri in priorites %}
-		           	<tr>
+		       	{%- for pri in priorities %}
+		           	<tr class = {{ pri.name }}>
 		           		<td>{{ loop.index }} </td>
 		               	<td>{{ pri.name }} </td>
-		               	<td> <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete_forever</i></a> </td>
+		               	<td> <a class="btn-floating waves-effect waves-light red del"><i class="material-icons">delete_forever</i></a> </td>
 		            </tr>
 		       	{%- endfor %}
 	       	</tbody>

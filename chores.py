@@ -20,7 +20,8 @@ def enter_pris():
 	db.session.add(high)
 	db.session.add(med)
 	db.session.add(low)
+	db.session.commit()
 
-create_model()
-enter_cats()
-enter_pris()
+# create_model()
+# enter_cats()
+# enter_pris()
